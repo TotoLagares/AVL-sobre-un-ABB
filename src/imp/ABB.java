@@ -89,13 +89,13 @@ public class ABB implements ABBTDA {
             return rotacionDerecha(nodo);
         }
 
-        if (balance > 1 && x < nodo.hijoDer.raiz()) {
+        if (balance > 1 && x < nodo.hijoDer.raiz()) { //D(hijo)I(desbalanceado)
             ABB derecho = (ABB) nodo.hijoDer;
             derecho.raiz = rotacionDerecha(derecho.raiz);
             return rotacionIzquierda(nodo);
         }
 
-        if (balance < -1 && x > nodo.hijoIzq.raiz()) {
+        if (balance < -1 && x > nodo.hijoIzq.raiz()) {//I(hijo)D(desbalanceado)
             ABB izquierdo = (ABB) nodo.hijoIzq;
             izquierdo.raiz = rotacionIzquierda(izquierdo.raiz);
             return rotacionDerecha(nodo);
@@ -140,10 +140,10 @@ public class ABB implements ABBTDA {
 
         int balance = factorBalance(nodo);
 
-        if (balance > 1 && factorBalance(((ABB) nodo.hijoIzq).raiz) >= 0) {
+        if (balance > 1 && factorBalance(((ABB) nodo.hijoIzq).raiz) >= 0) { // creo un subarbol derecho respecto al nodo. casteo este nuevo subarbol con el .raiz
             return rotacionDerecha(nodo);
         }
-        if (balance > 1 && factorBalance(((ABB) nodo.hijoIzq).raiz) < 0) {
+        if (balance > 1 && factorBalance(((ABB) nodo.hijoIzq).raiz) < 0) {//I(hijo)D(desbalanceado)
             ABB izquierdo = (ABB) nodo.hijoIzq;
             izquierdo.raiz = izquierdo.rotacionIzquierda(izquierdo.raiz);
             return rotacionDerecha(nodo);
@@ -151,7 +151,7 @@ public class ABB implements ABBTDA {
         if (balance < -1 && factorBalance(((ABB) nodo.hijoDer).raiz) <= 0) {
             return rotacionIzquierda(nodo);
         }
-        if (balance < -1 && factorBalance(((ABB) nodo.hijoDer).raiz) > 0) {
+        if (balance < -1 && factorBalance(((ABB) nodo.hijoDer).raiz) > 0) {//D(hijo)I(desbalanceado)
             ABB derecho = (ABB) nodo.hijoDer;
             derecho.raiz = derecho.rotacionDerecha(derecho.raiz);
             return rotacionIzquierda(nodo);

@@ -42,7 +42,6 @@ public class prin {
         arbol.agregarElem(35);
         arbol.agregarElem(40);
 
-
         preOrder(arbol);
         System.out.println();
         inOrder(arbol);
