@@ -49,7 +49,6 @@ public class prin {
         System.out.println();
         postOrder(arbol);
         System.out.println("");
-        arbol.printArbol();
     }
 
 }
