@@ -198,35 +198,5 @@ public class ABB implements ABBTDA {
     private int max(int a, int b) {
         return (a > b) ? a : b;
     }
-
-
-
-    public void printArbol() {
-        printArbolRec(raiz, "", true);
-    }
-
-    private void printArbolRec(NodoABB nodo, String prefijo, boolean esUltimo) {
-        if (nodo != null) {
-            System.out.println(prefijo + (esUltimo ? "└── " : "├── ") + nodo.info);
-
-            ABB izq = (ABB) nodo.hijoIzq;
-            ABB der = (ABB) nodo.hijoDer;
-
-            boolean tieneIzq = !izq.arbolVacio();
-            boolean tieneDer = !der.arbolVacio();
-
-            if (tieneIzq || tieneDer) {
-                if (tieneIzq)
-                    printArbolRec(izq.raiz, prefijo + (esUltimo ? "    " : "│   "), !tieneDer);
-                else
-                    System.out.println(prefijo + (esUltimo ? "    " : "│   ") + "├── [ ]");
-
-                if (tieneDer)
-                    printArbolRec(der.raiz, prefijo + (esUltimo ? "    " : "│   "), true);
-                else
-                    System.out.println(prefijo + (esUltimo ? "    " : "│   ") + "└── [ ]");
-            }
-        }
-    }
 }
 
