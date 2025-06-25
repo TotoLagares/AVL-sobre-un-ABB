@@ -8,5 +8,4 @@ public interface ABBTDA {
         ABBTDA hijoIzq();
         ABBTDA hijoDer();
         boolean arbolVacio();
-        void printArbol();
 }
